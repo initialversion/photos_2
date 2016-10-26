@@ -38,12 +38,14 @@
           <a href="/photos/<%= photo.id %>" class="btn btn-primary">
             Show
           </a>
-          <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">
-            Edit
-          </a>
-          <a href="/delete_photo/<%= photo.id %>" class="btn btn-danger" rel="nofollow">
-            Delete
-          </a>
+          <%if current_user == photo.user %>
+            <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">
+              Edit
+            </a>
+            <a href="/delete_photo/<%= photo.id %>" class="btn btn-danger" rel="nofollow">
+              Delete
+            </a>
+          <% end %>
         </li>
       <% end %>
     </ul>
